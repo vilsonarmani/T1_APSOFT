@@ -1,6 +1,6 @@
 package br.cefetrj.vendas.dominio;
 
-@Embeddable
+
 public class Endereco {
     String rua;
     String numero;

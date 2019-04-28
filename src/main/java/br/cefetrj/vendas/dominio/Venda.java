@@ -1,19 +1,13 @@
 package br.cefetrj.vendas.dominio;
 
-import java.util.Date;
+import java.math.BigDecimal;
 
-public class Venda {
+public interface Venda {
 
-   private Date data;
+    BigDecimal getTotal();
 
+    boolean estaQuitada(); //Verifica se uma venda está quitada ou não
 
-
-    public Date getData() {
-        return data;
-    }
-
-    public void setData(Date data) {
-        this.data = data;
-    }
+    void registrarPagamento(BigDecimal valorParcela);
 
 }
