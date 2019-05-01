@@ -1,0 +1,53 @@
+Considere o modelo de classes de domínio a seguir, criado para uma aplicação correspondente a uma loja virtual que comercializa produtos via Internet.
+Esse modelo será utilizado nos itens de 1 a 4 deste trabalho.
+
+Nas implementações que são solicitadas, utilize o princípios da programação defensiva e do encapsulamento sempre que fizer sentido.
+(1) Implementação de classes do domínio
+	a) Forneça a implementação das classes do diagrama acima, considerando atributos e associações apresentadas no diagrama de classes fornecido . Perceba que Venda e Cliente devem ser implementados por meio do padrão Aggregate(DDD). Sendo assim, implemente no agregado Venda uma operação para adicionar um novo item (correspondente a um produto com uma quantidade especificada) , assim como operações para remover e para atualizar a quantidade um item preexistente.
+
+	b) Considere que é necessário implementar na classe Venda um a operação cujo propósito é retornar o total de uma venda. Forneça uma implementação dessa operação que seja aderente ao princípio do encapsulamento.
+Aassinatura da operação deve ser necessariamente public BigDecimal getTotal().
+
+	c) Considere que uma venda está quitada quando o seu valor total dos pagamentos já realizados é maior o igual do que o valor total da venda. Nesse sentido, considere os seguintes métodos na classe Venda: Forneça a implementação desses métodos.
+Descreva, se for o caso, que atributos novos devem ser definidos na classe Venda para serem usados por conta desses novos métodos.
+
+ - public Boolean estaQuitada() , cujo propósito é verificar se uma venda está quitada ou não. Esse método deve retornar true se a venda está quitada, e false em caso contrário.
+ - public void registrarPagamento(BigDecimal valorParcela), que recebe um único parâmetro do tipo BigDecimal correspondente ao valor de uma parcela dessa venda. O objetivo desse método é registrar o pagamento de uma parcela da venda.
+
+(2) Implementação de classes do domínio;
+	Por meio do padrão Factory (DDD) crie uma fábrica para criar objetos Venda. Essa fábrica deve conter um método de criação que recebe o Cliente e um dicionário (cujos elementos são pares produto/quantidade) correspondente aos itens da venda a ser criada. Esse método deve retornar o objeto Venda recém-criado.
+
+(3) Implementação de classes do domínio
+	Por meio do padrão Domain Service (DDD), crie uma classe em que deve estar implementado um método com a assinatura a seguir. Esse método deve retornar um dicionário (mapa) com os diversos clientes da loja e, para cada um deles, o  produto que eles mais adquiriram em maior quantidade na loja virtual.
+	Se para um dado cliente houver dois ou mais produtos com igual quantidade máxima, o produto comprado mais recentemente deve ser selecionado.
+		public HashMap<Cliente, Produto> produtosPreferidos();
+
+(4) Operações de sistema
+	Ainda no contexto do diagrama de classes do domínio fornecido, considere a adição de uma nova classe no diagrama, denominada Pagamento.
+	Considere que uma venda pode ser paga por meio de várias parcelas.
+	Essa nova classe representa o registro de pagamento de uma parcela para uma venda. Uma venda pode estar associada a vários (zero ou mais) pagamentos; cada pagamento está associado a uma venda apenas.
+	Para cada pagamento de parcela, deve ficar registrada a data em que este foi realizado.
+	Considere ainda a existência de um caso de uso para permitir o registro d e um pagamento para uma venda criada previamente. Um cenário típico desse caso de uso é o seguinte:
+		O usuário fornece o código de uma venda, assim como o valor do pagamento para abater do total dessa venda.
+		Além do valor, deve ser também registrada a data em que o pagamento foi realizado (embora o usuário não forneça diretamente esta data).
+		Após o registro do pagamento, o sistema apresenta o saldo (i.e., quanto falta pagar do total da venda).
+	a) Forneça a assinatura (nome, parâmetros, tipo de retorno) da operação de sistema correspondente ao registro de pagamento de uma venda. Essa operação deve constar em alguma classe da camada de serviço dessa aplicação de loja virtual.
+	   Em seguida, implemente essa operação de sistema. Para isso, você irá precisar implementar de um objeto VendaRepositorio, que implementa o padrão tático Repository (DDD). Para implementar esse objeto, use o Spring Data JPA, conforme o exemplo dado em aula.
+	b) No seu relatório, descreva quais as adições (em termos de classes, associações, operações ou atributos) que você teve que realizar no modelo de classes de domínio original por conta da existência da operação de sistema do item  a?
+Justifique sua resposta.
+
+(5) Operações de sistema
+	Considere que deve existir um módulo para permitir ao usuário definir as entregas dos produtos de uma venda selecionada (i.e., definir que produtos e em que quantidades devem ser entregues, e em que datas). Nessa funcionalidade,  uma venda é selecionada. Então, os produtos dessa venda podem ser divididos pelo usuário em uma ou mais entregas. Para cada entrega, o usuário deve definir a data em que esta deve ocorrer, assim como definir quais produtos devem ser entregues, e em quais quantidades.
+	Considerando o contexto apresentado acima, forneça a assinatura e a descrição de cada uma das operações de sistema que devem constar na camada de serviço dessa aplicação.
+
+
+
+O que deve ser entregue
+	Você deve entregar um relatório em formato PDF detalhando a solução de cada tarefa. Além disso, você deve entregar todo em qualquer código fonte gerado em alguma tarefa do trabalho.
+	ATENÇÃO!
+	Crie uma pasta raiz denominada t1. Essa pasta deve conter uma subpasta para cada tarefa que demande a criação de algum código.
+	Para submeter seu trabalho compacte a pasta t1 e o seu relatório (em PDF) e submeta o arquivo compactado pelo Moodle. O nome do arquivo compactado deve seguir o padrão T1_SEU_NOME_COMPLETO.zip.
+Outras observações:
+ Esse trabalho é individual. Você pode discutir com seu colega eventuais soluções, mas as respostas devem ser produzidas exclusivamente por você.
+ Para as questões que envolvem implementação, você tem a escolha de usar qualquer uma das linguagens de programação a seguir:
+	Ruby, C++, Java, C#, Python.

@@ -1,0 +1,24 @@
+ ☐  @created(19-04-29 23:35)
+QUESTÃO 1
+ ☐ c - (public Boolean estaQuitada()) -> Proposito verificar se uma venda esta quitada ou não [true|false]
+ ☐ c - (public void registrarPagamento(BigDecimal valorParcela)) -> registra o pagamento de uma parcela da venda
+ QUESTÃO 2:
+  ✔ Criar uma fábrica com metodo que recebe cliente e um map<Produto, quantidade>() que retorna venda recém criada @done (19-04-29 23:45)
+   
+  QUESTÃO 3:
+    ☐ Criar classe com metodo [public HasMap<Cliente,Produto>Produtospreferidos)()] mapa com todos os clientes da loja e o produto comprado em maior quantidade trazer apenas o mais recente caso haja produtos com mesma quantidade;
+    ☐ 
+  QUESTÃO 4:
+    ☐ Fazer
+
+  QUESTÃO 5:
+   ☐ Fazer
+
+
+  QUESTÃO 6:
+    ✔ Dedé @done (19-04-29 23:51)    
+ 
+
+  QUESTÃO 7:
+    ✔ Dedé @done (19-04-29 23:51)
+    
